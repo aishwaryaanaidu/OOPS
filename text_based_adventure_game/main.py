@@ -13,4 +13,10 @@ study_room.link_room(kitchen, "west")
 kitchen.link_room(dining_hall, "north")
 dining_hall.link_room(kitchen, "south")
 
-kitchen.get_details()
+current_room = kitchen
+
+while True:
+    print("\n")
+    current_room.get_details()
+    direction = input(">")
+    current_room = current_room.move(direction)
