@@ -12,5 +12,5 @@ kitchen.link_room(study_room, "east")
 study_room.link_room(kitchen, "west")
 kitchen.link_room(dining_hall, "north")
 dining_hall.link_room(kitchen, "south")
-# print(kitchen.linked_rooms)
 
+kitchen.get_details()
