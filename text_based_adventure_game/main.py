@@ -5,6 +5,11 @@ kitchen = Room("Kitchen")
 study_room = Room("Study Room")
 dining_hall = Room("Dining Hall")
 
+# Item class operations
+sword = Item()
+sword.set_name("Sword")
+print(sword.get_name())
+
 kitchen.set_description("Place where you can cook yummy food")
 study_room.set_description("Place where you study")
 dining_hall.set_description("Place where you have food")
@@ -17,13 +22,7 @@ dining_hall.link_room(kitchen, "south")
 current_room = kitchen
 
 while True:
-    print("\n")
     current_room.get_details()
     direction = input(">")
     current_room = current_room.move(direction)
 
-# Item class operations
-
-sword = Item()
-sword.set_name("Sword")
-print(sword.get_name())
