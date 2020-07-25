@@ -1,4 +1,5 @@
 from text_based_adventure_game.room import Room
+from text_based_adventure_game.item import Item
 
 kitchen = Room("Kitchen")
 study_room = Room("Study Room")
@@ -20,3 +21,9 @@ while True:
     current_room.get_details()
     direction = input(">")
     current_room = current_room.move(direction)
+
+# Item class operations
+
+sword = Item()
+sword.set_name("Sword")
+print(sword.get_name())
