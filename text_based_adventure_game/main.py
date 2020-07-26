@@ -1,6 +1,13 @@
 from text_based_adventure_game.room import Room
 from text_based_adventure_game.item import Item
 from text_based_adventure_game.character import Enemy, Friend
+from text_based_adventure_game.game_info import GameInfo
+
+# Displaying game related information
+spooky_castle = GameInfo("Spooky Castle")
+spooky_castle.welcome()
+GameInfo.info()
+GameInfo.author = "Aishwarya M S"
 
 # Room class initializations
 kitchen = Room("Kitchen")
@@ -70,4 +77,6 @@ while dead is False:
                 print("I wouldn't do that if I were you")
         else:
             print("There is nobody to hug in this room :(")
+
+GameInfo.credits()
 
