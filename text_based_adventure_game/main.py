@@ -29,6 +29,8 @@ catrina = Friend("Catrina", "A friendly skeleton")
 catrina.set_conversation("Hello there:D")
 kitchen.set_character(catrina)
 
+print("You have " + str(Room.number_of_rooms) + " rooms available to explore")
+
 # Item class operations
 sword = Item()
 sword.set_name("Sword")
