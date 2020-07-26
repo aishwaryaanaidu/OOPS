@@ -66,7 +66,8 @@ while dead is False:
         if inhabitant is not None and isinstance(inhabitant, Enemy):
             print('What will you fight with?')
             fight_with = input()
-            dead = inhabitant.fight(fight_with)
+            inhabitant.fight(fight_with)
+            dead = True
         else:
             print("There is no one in this room with whom you can fight")
     elif command == 'hug':
