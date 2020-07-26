@@ -50,3 +50,12 @@ class Enemy(Character):
             print(self.name + " crushes you, puny adventurer")
             return False
 
+
+class Friend(Character):
+    def __init__(self, name, description):
+        super().__init__(name, description)
+        self.feeling = None
+
+    def hug(self):
+        print(self.name + " hugs you back!!")
+

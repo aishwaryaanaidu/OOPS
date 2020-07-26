@@ -1,6 +1,6 @@
 from text_based_adventure_game.room import Room
 from text_based_adventure_game.item import Item
-from text_based_adventure_game.character import Enemy
+from text_based_adventure_game.character import Enemy, Friend
 
 # Room class initializations
 kitchen = Room("Kitchen")
@@ -24,17 +24,22 @@ dave.set_conversation("I'm gonna kill you")
 dave.set_weakness("cheese")
 study_room.set_character(dave)
 
+# Creating a Friend
+catrina = Friend("Catrina", "A friendly skeleton")
+catrina.set_conversation("Hello there:D")
+kitchen.set_character(catrina)
+
 # Item class operations
 sword = Item()
 sword.set_name("Sword")
-print(sword.get_name())
+# print(sword.get_name())
 
 directions = ['east', 'west', 'north', 'south']
 # Game control
 current_room = kitchen
 dead = False
 
-while dead is not False:
+while dead is False:
     current_room.get_details()
 
     inhabitant = current_room.get_character()
@@ -55,4 +60,12 @@ while dead is not False:
             dead = inhabitant.fight(fight_with)
         else:
             print("There is no one in this room with whom you can fight")
+    elif command == 'hug':
+        if inhabitant is not None:
+            if isinstance(inhabitant, Friend):
+                inhabitant.hug()
+            else:
+                print("I wouldn't do that if I were you")
+        else:
+            print("There is nobody to hug in this room :(")
 

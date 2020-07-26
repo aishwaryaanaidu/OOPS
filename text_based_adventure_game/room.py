@@ -20,6 +20,7 @@ class Room:
     def get_name(self):
         return self.name
 
+    # Room object has Character object inside it - Aggregation
     def set_character(self, character):
         self.character = character
 
