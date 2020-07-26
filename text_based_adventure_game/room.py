@@ -5,7 +5,8 @@ class Room:
     def __init__(self, room_name):
         # instance variables declared inside the constructor
         self.name = room_name
-        self.description = None
+        # Protected attribute description
+        self._description = None
         self.linked_rooms = {}
         self.character = None
         Room.number_of_rooms += 1
@@ -16,11 +17,18 @@ class Room:
     def get_description(self):
         return self.description
 
-    def show_description(self):
-        print(self.description)
+    # def show_description(self):
+    #     print(self.description)
+    #
+    # def set_name(self, room_name):
+    #     self.name = room_name
+    @property
+    def description(self):
+        return self._description
 
-    def set_name(self, room_name):
-        self.name = room_name
+    @description.setter
+    def description(self, description):
+        self._description = description
 
     def get_name(self):
         return self.name

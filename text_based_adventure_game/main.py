@@ -15,9 +15,9 @@ study_room = Room("Study Room")
 dining_hall = Room("Dining Hall")
 
 # Setting Room class descriptions
-kitchen.set_description("Place where you can cook yummy food")
-study_room.set_description("Place where you study")
-dining_hall.set_description("Place where you have food")
+kitchen.description = "Place where you can cook yummy food"
+study_room.description = "Place where you study"
+dining_hall.description = "Place where you have food"
 
 # Linking rooms
 kitchen.link_room(study_room, "east")
