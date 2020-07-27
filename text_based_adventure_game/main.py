@@ -3,6 +3,8 @@ from text_based_adventure_game.item import Item
 from text_based_adventure_game.character import Enemy, Friend
 from text_based_adventure_game.game_info import GameInfo
 
+backpack = []
+
 # Displaying game related information
 spooky_castle = GameInfo("Spooky Castle")
 spooky_castle.welcome()
@@ -57,6 +59,13 @@ while dead is False:
     item = current_room.get_item()
     if item is not None:
         item.describe()
+        print("Do you want to take the " + item.get_name() + "? Please enter Yes/No")
+        take_item = input()
+        if take_item == "Yes":
+            backpack.append(item.get_name())
+            current_room.set_item(None)
+        else:
+            print("You chose not to take the " + item.get_name())
 
     inhabitant = current_room.get_character()
     if inhabitant is not None:
@@ -87,4 +96,3 @@ while dead is False:
             print("There is nobody to hug in this room :(")
 
 GameInfo.credits()
-
