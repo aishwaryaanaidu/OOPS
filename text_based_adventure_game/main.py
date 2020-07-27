@@ -82,7 +82,10 @@ while dead is False:
         if inhabitant is not None and isinstance(inhabitant, Enemy):
             print('What will you fight with?')
             fight_with = input()
-            inhabitant.fight(fight_with)
+            if fight_with in backpack:
+                inhabitant.fight(fight_with)
+            else:
+                print("You do not have " + fight_with + " in your backpack.")
             dead = True
         else:
             print("There is no one in this room with whom you can fight")
