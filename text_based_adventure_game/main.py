@@ -25,10 +25,19 @@ study_room.link_room(kitchen, "west")
 kitchen.link_room(dining_hall, "north")
 dining_hall.link_room(kitchen, "south")
 
+# Adding items to the rooms
+sword = Item("Sword")
+sword.set_description("You can kill the enemy using it")
+kitchen.set_item(sword)
+
+book = Item("Book")
+book.set_description("A magical book")
+study_room.set_item(book)
+
 # Creating an Enemy
 dave = Enemy("Dave", "A smelly zombie")
 dave.set_conversation("I'm gonna kill you")
-dave.set_weakness("cheese")
+dave.set_weakness("Sword")
 study_room.set_character(dave)
 
 # Creating a Friend
@@ -38,11 +47,6 @@ kitchen.set_character(catrina)
 
 print("You have " + str(Room.number_of_rooms) + " rooms available to explore")
 
-# Item class operations
-sword = Item()
-sword.set_name("Sword")
-# print(sword.get_name())
-
 directions = ['east', 'west', 'north', 'south']
 # Game control
 current_room = kitchen
@@ -50,6 +54,9 @@ dead = False
 
 while dead is False:
     current_room.get_details()
+    item = current_room.get_item()
+    if item is not None:
+        item.describe()
 
     inhabitant = current_room.get_character()
     if inhabitant is not None:
